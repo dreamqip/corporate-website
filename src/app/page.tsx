@@ -1,113 +1,134 @@
-import Image from 'next/image'
+import Balancer from 'react-wrap-balancer';
+import Card from '@/app/components/ProjectCard';
+import Image from 'next/image';
+import ContactForm from '@/app/components/ContactForm';
+import Footer from '@/app/components/Footer';
+import Navbar from '@/app/components/Navbar';
+import { PEOPLE, PROJECTS } from '@/lib/data';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <Navbar />
+
+      <main className='flex min-h-screen flex-col items-center justify-between container'>
+        <section className='mx-auto grid max-w-3xl place-items-center py-10 sm:py-16'>
+          <h1
+            className='flex flex-col flex-wrap items-center justify-center text-5xl font-bold tracking-tight md:flex-row'
+            aria-label='Empower. Innovate. Transcend.'
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
+            <span>Empower.</span>
+            <span className='text-accent-6'>Innovate.</span>
+            <span className='text-accent-6'>Transcend.</span>
+          </h1>
+          <h2 className='mt-4 text-center text-accent-5 text-lg'>
+            <Balancer>
+              We are a strategic web3 agency that empowers its clients to adopt
+              blockchain technology for the good of their businesses.
+            </Balancer>
+          </h2>
+          <a
+            className='mt-8 cursor-pointer p-4 shadow-[0_0_0_2px] transition-shadow hover:shadow-[0_0_0_4px]'
+            href='#collaboration'
+          >
+            Collaborate
           </a>
-        </div>
-      </div>
+          <div className='mt-16'>
+            {/* TODO */}
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster='/moon.jpg'
+              className=''
+              src='/moon.mp4'
+            />
+          </div>
+        </section>
+        <section className='scroll-mt-16 py-10 sm:py-16' id='projects'>
+          <div className='mx-auto w-full max-w-3xl'>
+            <h3
+              className='text-center text-4xl font-bold'
+              aria-label='We create products that make a difference.'
+            >
+              <span className='text-accent-6'>We</span> create products{' '}
+              <span className='text-accent-6'>that</span> make a difference.
+            </h3>
+            <p className='mt-4 text-center text-lg text-accent-6'>
+              <Balancer>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam voluptatum, quibusdam, quia, quae voluptate quod
+                voluptatibus
+              </Balancer>
+            </p>
+          </div>
+          <div className='mt-16 flex max-w-4xl flex-wrap justify-center gap-8'>
+            {PROJECTS.map((post, i) => (
+              <div key={i} className='grid w-full md:w-[calc(50%-2rem)]'>
+                <Card key={i} {...post} />
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className='scroll-mt-16 py-10 sm:py-16' id='people'>
+          <div className='mx-auto w-full max-w-4xl'>
+            <h2
+              className='text-center text-4xl font-bold'
+              aria-label='We speak 6 languages and live in 6 countries.'
+            >
+              <span className='text-accent-6'>We speak</span> 6 languages{' '}
+              <span className='text-accent-6'>and live in 6 countries.</span>
+            </h2>
+            <p className='mt-4 text-center text-lg text-accent-6'>
+              <Balancer>
+                We are a dynamic group of individuals who are passionate about
+                what we do and dedicated to delivering the best results for our
+                clients.
+              </Balancer>
+            </p>
+          </div>
+          <div className='mt-16 flex max-w-6xl flex-wrap justify-center gap-8'>
+            {PEOPLE.map((member, i) => (
+              <div key={i} className='group w-full sm:w-[calc(50%-2rem)] md:w-[calc(33%-2rem)] lg:w-[calc(25%-2rem)]'>
+                <div className='relative overflow-hidden'>
+                  <Image
+                    src={member.image}
+                    alt={`${member.name}'s avatar`}
+                    width={274}
+                    height={274}
+                    className='w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0'
+                  />
+                  <div className='absolute inset-0 bg-gradient-to-t from-black to-transparent transition-all duration-300 group-hover:opacity-0' />
+                </div>
+                <h3 className='mt-4 text-lg sm:text-xl font-medium'>{member.name}</h3>
+                <p className='mt-2 text-accent-6'>{member.title}</p>
+                <p className='mt-2 text-sm text-accent-5'>{member.location}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className='grid scroll-mt-16 gap-16 py-10 sm:py-16' id='collaboration'>
+          <div className='mx-auto w-full max-w-2xl'>
+            <h2
+              className='text-center text-4xl font-bold'
+              aria-label='We speak 6 languages and live in 6 countries.'
+            >
+              <span className='text-accent-6'>We are</span> open{' '}
+              <span className='text-accent-6'>to</span> new collaborations.
+            </h2>
+            <p className='mt-4 text-center text-lg text-accent-6'>
+              <Balancer>
+                Our philosophy is to work with partners who demonstrate a
+                commitment to developing and shaping the future of the market.
+              </Balancer>
+            </p>
+          </div>
+          <ContactForm />
+        </section>
+      </main>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      <Footer />
+    </>
+  );
 }
