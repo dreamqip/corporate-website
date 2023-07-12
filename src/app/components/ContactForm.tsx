@@ -1,28 +1,45 @@
 'use client';
 
-import { sendForm } from '@/app/actions';
-import { useRef } from 'react';
+import { type FormEvent, useRef } from 'react';
 import { toast } from 'sonner';
 
 export default function ContactForm() {
   const ref = useRef<HTMLFormElement>(null);
 
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+
+    // Creating a new promise to later use with toast.promise to show loading
+    const promise = new Promise((resolve, reject) => {
+      fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+      }).then(async (res) => {
+        const json = await res.json();
+        if (!res.ok) {
+          reject(json);
+        }
+
+        resolve(json);
+      });
+    });
+
+    toast.promise(promise, {
+      loading: 'Sending...',
+      success: () => {
+        // ref.current?.reset();
+        return 'Message sent!';
+      },
+      error: (err) => err,
+    });
+  };
+
   return (
-    <form
-      ref={ref}
-      action={(data) => {
-        toast.promise(sendForm(data), {
-          loading: 'Sending...',
-          success: () => {
-            ref.current?.reset();
-            return 'Message sent!'
-          },
-          error: (err) => err.message,
-        });
-      }}
-    >
+    <form ref={ref} onSubmit={handleSubmit}>
       <div className='flex border-y-2 border-accent-2'>
-        <label className='flex w-36 sm:w-48 items-center py-8' htmlFor='name'>
+        <label className='flex w-36 items-center py-8 sm:w-48' htmlFor='name'>
           Name
         </label>
         <input
@@ -34,7 +51,7 @@ export default function ContactForm() {
         />
       </div>
       <div className='flex border-b-2 border-accent-2'>
-        <label className='flex w-36 sm:w-48 items-center py-8' htmlFor='phone'>
+        <label className='flex w-36 items-center py-8 sm:w-48' htmlFor='phone'>
           Phone
         </label>
         <input
@@ -48,7 +65,7 @@ export default function ContactForm() {
         />
       </div>
       <div className='group flex border-b-2 border-accent-2'>
-        <label className='flex w-36 sm:w-48 items-center py-8' htmlFor='email'>
+        <label className='flex w-36 items-center py-8 sm:w-48' htmlFor='email'>
           Email
         </label>
         <input
@@ -62,7 +79,10 @@ export default function ContactForm() {
         />
       </div>
       <div className='flex border-b-2 border-accent-2'>
-        <label className='flex w-36 sm:w-48 items-center py-8' htmlFor='message'>
+        <label
+          className='flex w-36 items-center py-8 sm:w-48'
+          htmlFor='message'
+        >
           How can we help?
         </label>
         <input

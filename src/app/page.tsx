@@ -6,8 +6,6 @@ import Footer from '@/app/components/Footer';
 import Navbar from '@/app/components/Navbar';
 import { PEOPLE, PROJECTS } from '@/lib/data';
 
-export const runtime = 'edge';
-
 export default function Home() {
   return (
     <>
