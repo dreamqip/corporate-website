@@ -16,6 +16,7 @@ export async function GET() {
       continue;
     }
 
+    // TODO: Find a better way to do this
     const person = {
       id: page.id,
       name:
@@ -28,7 +29,9 @@ export async function GET() {
           : '',
       image:
         page.properties.Image.type === 'files'
-          ? page.properties.Image.files[0].name
+          ? page.properties.Image.files[0].type === 'file'
+            ? page.properties.Image.files[0].file.url
+            : ''
           : '',
       location:
         page.properties.Location.type === 'rich_text'
