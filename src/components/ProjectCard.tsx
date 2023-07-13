@@ -1,14 +1,9 @@
 import Image from 'next/image';
+import { Project } from '@/types';
 
-type Props = {
-  title: string;
-  description: string;
-  date: Date;
-  tags: string[];
-  image: string;
-};
+type Props = Project;
 
-export default function Card({ title, date, tags, image, description }: Props) {
+export default function Card({ name, date, tags, image, description }: Props) {
   const formatter = new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
     month: 'short',
@@ -21,13 +16,15 @@ export default function Card({ title, date, tags, image, description }: Props) {
         <Image
           className='w-full shadow-[0_4px_4px_0_#000000_0.25] grayscale transition-all duration-300 group-hover:grayscale-0'
           src={image}
-          alt={title}
+          alt={name}
           width={400}
           height={432}
         />
         <div className='absolute bottom-0 left-8 z-10 flex flex-col items-start'>
           <div className='flex items-center'>
-            <h4 className='text-accent-6'>{formatter.format(date)}</h4>
+            <h4 className='text-accent-6'>
+              {formatter.format(new Date(date || ''))}
+            </h4>
             {tags.map((tag) => (
               <span
                 key={tag}
@@ -37,7 +34,7 @@ export default function Card({ title, date, tags, image, description }: Props) {
               </span>
             ))}
           </div>
-          <h3 className='mt-3 text-xl font-medium'>{title}</h3>
+          <h3 className='mt-3 text-xl font-medium'>{name}</h3>
         </div>
       </div>
       <div className='mt-6 px-8'>
