@@ -62,6 +62,12 @@ export const getPeopleFullPageOrPartialPage = async () => {
   try {
     return await notion.databases.query({
       database_id: databaseId,
+      sorts: [
+        {
+          property: 'Priority',
+          direction: 'ascending',
+        },
+      ],
     });
   } catch (error) {
     if (isNotionClientError(error)) {
@@ -78,6 +84,12 @@ export const getProjectsFullPageOrPartialPage = async () => {
   try {
     return await notion.databases.query({
       database_id: databaseId,
+      sorts: [
+        {
+          property: 'Priority',
+          direction: 'ascending',
+        },
+      ],
     });
   } catch (error) {
     if (isNotionClientError(error)) {
