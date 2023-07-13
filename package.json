@@ -1,5 +1,5 @@
 {
-  "name": "website-3",
+  "name": "manuvantara.com",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -29,7 +29,6 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@faker-js/faker": "^8.0.2",
     "eslint-config-prettier": "^8.8.0",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0"
