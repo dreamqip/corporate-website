@@ -43,7 +43,7 @@ export default function ContactForm() {
           Name
         </label>
         <input
-          className='flex flex-1 items-center justify-center self-stretch border-0 bg-background focus:outline-none'
+          className='flex flex-1 items-center justify-center self-stretch border-0 bg-background  placeholder:placeholder-opacity-100 focus:outline-none sm:placeholder:placeholder-opacity-0'
           type='text'
           name='name'
           id='name'
@@ -51,25 +51,31 @@ export default function ContactForm() {
         />
       </div>
       <div className='flex border-b-2 border-accent-2'>
-        <label className='flex w-36 items-center py-8 sm:w-48' htmlFor='phone'>
+        <label
+          className='hidden w-36 items-center py-8 sm:flex sm:w-48'
+          htmlFor='phone'
+        >
           Phone
         </label>
         <input
-          className='flex flex-1 items-center justify-center self-stretch border-0 bg-background focus:outline-none'
+          className='flex flex-1 items-center justify-center self-stretch border-0 bg-background placeholder:placeholder-opacity-100 invalid:border-b-2 invalid:border-error invalid:ring-error focus:outline-none sm:placeholder:placeholder-opacity-0'
           type='tel'
           name='phone'
           id='phone'
           required
-          pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
-          title='Phone Number (Format: 123-456-7890)'
+          pattern='[0-9\-\+\(\) ]+'
+          title='Only numbers, spaces and these symbols are allowed: ( ) + - .'
         />
       </div>
       <div className='group flex border-b-2 border-accent-2'>
-        <label className='flex w-36 items-center py-8 sm:w-48' htmlFor='email'>
+        <label
+          className='hidden w-36 items-center py-8 sm:flex sm:w-48'
+          htmlFor='email'
+        >
           Email
         </label>
         <input
-          className='flex flex-1 items-center justify-center self-stretch border-0 bg-background invalid:border-error invalid:ring-error focus:outline-none'
+          className='flex flex-1 items-center justify-center self-stretch border-0 bg-background placeholder:placeholder-opacity-100 invalid:border-error invalid:ring-error focus:outline-none sm:placeholder:placeholder-opacity-0'
           type='email'
           name='email'
           id='email'
@@ -80,21 +86,21 @@ export default function ContactForm() {
       </div>
       <div className='flex border-b-2 border-accent-2'>
         <label
-          className='flex w-36 items-center py-8 sm:w-48'
+          className='sr-only flex w-36 items-center py-8 sm:not-sr-only sm:w-48'
           htmlFor='message'
         >
           How can we help?
         </label>
-        <input
-          className='flex flex-1 items-center justify-center self-stretch border-0 bg-background focus:outline-none'
-          type='text'
+        <textarea
+          className='flex flex-1 resize-none items-center justify-center self-stretch border-0 bg-background placeholder:opacity-0 focus:outline-none sm:placeholder:opacity-0'
           name='message'
           id='message'
+          placeholder='How can we help?'
           required
         />
       </div>
       <button
-        className='mt-16 w-36 cursor-pointer p-4 shadow-[0_0_0_2px] transition-shadow hover:shadow-[0_0_0_4px]'
+        className='mt-16 w-36 cursor-pointer p-4 font-medium shadow-[0_0_0_2px] transition-shadow hover:shadow-[0_0_0_4px]'
         type='submit'
       >
         Send
