@@ -102,7 +102,7 @@ export default async function Home() {
                     alt={`${person.name}'s avatar`}
                     width={274}
                     height={274}
-                    className='w-full h-72 object-cover grayscale transition-all duration-300 group-hover:grayscale-0'
+                    className='h-72 w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0'
                   />
                   <div className='absolute inset-0 bg-gradient-to-t from-black to-transparent transition-all duration-300 group-hover:opacity-0' />
                 </div>

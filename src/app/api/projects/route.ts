@@ -34,7 +34,9 @@ export async function GET() {
           ? page.properties.Tags.multi_select.map((tag) => tag.name)
           : [],
       date:
-        page.properties.Date.type === 'date' ? page.properties.Date.date?.start : '',
+        page.properties.Date.type === 'date'
+          ? page.properties.Date.date?.start
+          : '',
     };
 
     projects.push(project);
