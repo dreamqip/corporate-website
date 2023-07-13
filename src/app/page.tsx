@@ -7,8 +7,8 @@ import Navbar from '@/components/Navbar';
 import { getPeople, getProjects } from '@/lib/api';
 
 export default async function Home() {
-  const people = await getPeople();
-  const projects = await getProjects();
+  // const people = await getPeople();
+  // const projects = await getProjects();
 
   return (
     <>
