@@ -66,11 +66,11 @@ export default async function Home() {
             </p>
           </div>
           <div className='mt-16 flex max-w-4xl flex-wrap justify-center gap-8'>
-            {projects.map((post) => (
+            {/* {projects.map((post) => (
               <div key={post.id} className='grid w-full md:w-[calc(50%-2rem)]'>
                 <Card {...post} />
               </div>
-            ))}
+            ))} */}
           </div>
         </section>
         <section className='scroll-mt-16 py-10 sm:py-16' id='people'>
@@ -91,7 +91,7 @@ export default async function Home() {
             </p>
           </div>
           <div className='mt-16 flex max-w-6xl flex-wrap justify-center gap-8'>
-            {people.map((person) => (
+            {/* {people.map((person) => (
               <div
                 key={person.id}
                 className='group w-full sm:w-[calc(50%-2rem)] md:w-[calc(33%-2rem)] lg:w-[calc(25%-2rem)]'
@@ -112,7 +112,7 @@ export default async function Home() {
                 <p className='mt-2 text-accent-6'>{person.title}</p>
                 <p className='mt-2 text-sm text-accent-5'>{person.location}</p>
               </div>
-            ))}
+            ))} */}
           </div>
         </section>
         <section
