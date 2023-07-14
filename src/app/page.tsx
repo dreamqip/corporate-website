@@ -1,12 +1,10 @@
-import Balancer from 'react-wrap-balancer';
-import Card from '@/components/ProjectCard';
-import Image from 'next/image';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import Card from '@/components/ProjectCard';
 import { getPeople, getProjects } from '@/lib/api';
-import styles from './styles.module.css';
-import clsx from 'clsx';
+import Image from 'next/image';
+import Balancer from 'react-wrap-balancer';
 
 export default async function Home() {
   const people = await getPeople();
@@ -24,27 +22,27 @@ export default async function Home() {
           >
             <span
               data-content='Empower.'
-              className='before:animate-gradient-background-1 relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:px-1 before:text-center before:text-foreground before:content-[attr(data-content)]'
+              className='relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:animate-gradient-background-1 before:px-1 before:text-center before:text-foreground before:content-[attr(data-content)]'
             >
-              <span className='from-accent-6 to-accent-6 animate-gradient-foreground-1 bg-gradient-to-r bg-clip-text px-1 text-transparent'>
+              <span className='animate-gradient-foreground-1 bg-gradient-to-r from-accent-6 to-accent-6 bg-clip-text px-1 text-transparent'>
                 {' '}
                 Empower.
               </span>
             </span>
             <span
               data-content='Innovate.'
-              className='before:animate-gradient-background-2 relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:px-1 before:pl-3 before:text-center before:text-foreground before:content-[attr(data-content)]'
+              className='relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:animate-gradient-background-2 before:px-1 before:pl-3 before:text-center before:text-foreground before:content-[attr(data-content)]'
             >
-              <span className='from-accent-6 to-accent-6 animate-gradient-foreground-2 bg-gradient-to-r bg-clip-text px-1 pl-3 text-transparent'>
+              <span className='animate-gradient-foreground-2 bg-gradient-to-r from-accent-6 to-accent-6 bg-clip-text px-1 pl-3 text-transparent'>
                 {' '}
                 Innovate.
               </span>
             </span>
             <span
               data-content='Transcend.'
-              className='before:animate-gradient-background-3 relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:px-1 before:text-center before:text-foreground before:content-[attr(data-content)]'
+              className='relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:animate-gradient-background-3 before:px-1 before:text-center before:text-foreground before:content-[attr(data-content)]'
             >
-              <span className='from-accent-6 to-accent-6 animate-gradient-foreground-3 bg-gradient-to-r bg-clip-text px-1 text-transparent'>
+              <span className='animate-gradient-foreground-3 bg-gradient-to-r from-accent-6 to-accent-6 bg-clip-text px-1 text-transparent'>
                 {' '}
                 Transcend.
               </span>
