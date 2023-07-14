@@ -5,6 +5,8 @@ import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { getPeople, getProjects } from '@/lib/api';
+import styles from './styles.module.css';
+import clsx from 'clsx';
 
 export default async function Home() {
   const people = await getPeople();
@@ -20,9 +22,36 @@ export default async function Home() {
             className='flex flex-col flex-wrap items-center justify-center text-5xl font-bold tracking-tight md:flex-row'
             aria-label='Empower. Innovate. Transcend.'
           >
-            <span>Empower.</span>
+            <span
+              data-content='Empower.'
+              className='before:animate-gradient-background-1 relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:px-1 before:text-center before:text-foreground before:content-[attr(data-content)]'
+            >
+              <span className='from-accent-6 to-accent-6 animate-gradient-foreground-1 bg-gradient-to-r bg-clip-text px-1 text-transparent'>
+                {' '}
+                Empower.
+              </span>
+            </span>
+            <span
+              data-content='Innovate.'
+              className='before:animate-gradient-background-2 relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:px-1 before:pl-3 before:text-center before:text-foreground before:content-[attr(data-content)]'
+            >
+              <span className='from-accent-6 to-accent-6 animate-gradient-foreground-2 bg-gradient-to-r bg-clip-text px-1 pl-3 text-transparent'>
+                {' '}
+                Innovate.
+              </span>
+            </span>
+            <span
+              data-content='Transcend.'
+              className='before:animate-gradient-background-3 relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:px-1 before:text-center before:text-foreground before:content-[attr(data-content)]'
+            >
+              <span className='from-accent-6 to-accent-6 animate-gradient-foreground-3 bg-gradient-to-r bg-clip-text px-1 text-transparent'>
+                {' '}
+                Transcend.
+              </span>
+            </span>
+            {/* <span>Empower.</span>
             <span className='pl-3 text-accent-6'>Innovate.</span>
-            <span className='pl-1 text-accent-6'>Transcend.</span>
+            <span className='pl-1 text-accent-6'>Transcend.</span> */}
           </h1>
           <h2 className='mt-4 text-center text-lg text-accent-5'>
             <Balancer>
