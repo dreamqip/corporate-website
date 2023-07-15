@@ -2,6 +2,7 @@
 
 import { type FormEvent, useRef } from 'react';
 import { toast } from 'sonner';
+import TextareaAutosize from 'react-textarea-autosize';
 
 export default function ContactForm() {
   const ref = useRef<HTMLFormElement>(null);
@@ -38,9 +39,9 @@ export default function ContactForm() {
 
   return (
     <form ref={ref} onSubmit={handleSubmit}>
-      <div className='flex min-h-[9rem] flex-col-reverse border-y-2 border-accent-2 sm:flex-row-reverse'>
+      <div className='flex min-h-[9rem] flex-col-reverse border-y-2 border-accent-2 text-lg sm:min-h-0 sm:flex-row-reverse'>
         <input
-          className='peer/name flex flex-1 items-center justify-center self-stretch border-0 bg-background  text-sm focus:-mb-[2px] focus:border-b-2 focus:outline-none'
+          className='peer/name flex flex-1 items-center justify-center self-stretch border-0 bg-background focus:-mb-[2px] focus:border-b-2 focus:outline-none'
           type='text'
           name='name'
           id='name'
@@ -53,9 +54,9 @@ export default function ContactForm() {
           Name
         </label>
       </div>
-      <div className='flex min-h-[9rem] flex-col-reverse border-b-2 border-accent-2 sm:flex-row-reverse'>
+      <div className='flex min-h-[9rem] flex-col-reverse border-b-2 border-accent-2 text-lg sm:min-h-0 sm:flex-row-reverse'>
         <input
-          className='peer/phone flex flex-1 items-center justify-center self-stretch border-0 bg-background text-sm focus:-mb-[2px] focus:border-b-2 focus:outline-none'
+          className='peer/phone flex flex-1 items-center justify-center self-stretch border-0 bg-background focus:-mb-[2px] focus:border-b-2 focus:outline-none'
           type='tel'
           name='phone'
           id='phone'
@@ -70,9 +71,9 @@ export default function ContactForm() {
           Phone
         </label>
       </div>
-      <div className='flex min-h-[9rem] flex-col-reverse border-b-2 border-accent-2 sm:flex-row-reverse'>
+      <div className='flex min-h-[9rem] flex-col-reverse border-b-2 border-accent-2 text-lg sm:min-h-0 sm:flex-row-reverse'>
         <input
-          className='peer/email flex flex-1 items-center justify-center self-stretch border-0 bg-background text-sm focus:-mb-[2px] focus:border-b-2 focus:outline-none'
+          className='peer/email flex flex-1 items-start justify-start self-stretch border-0 bg-background focus:-mb-[2px] focus:border-b-2 focus:outline-none sm:items-center sm:justify-center'
           type='email'
           name='email'
           id='email'
@@ -87,23 +88,24 @@ export default function ContactForm() {
           Email
         </label>
       </div>
-      <div className='flex min-h-[9rem] flex-col-reverse border-b-2 border-accent-2 sm:flex-row-reverse'>
-        <textarea
-          className='peer/message flex flex-1 resize-none items-center justify-center bg-background text-sm leading-6 placeholder:opacity-0 focus:-mb-[2px] focus:border-b-2 focus:outline-none pt-4 sm:pt-8 sm:placeholder:opacity-0'
+      <div className='flex min-h-[9rem] flex-col-reverse text-lg sm:min-h-0 sm:flex-row-reverse'>
+        <TextareaAutosize
+          className='peer/message flex resize-none items-center justify-center border-b-2 border-accent-2 bg-background py-4 pt-8 focus:border-foreground focus:outline-none sm:flex-1 sm:py-8'
           name='message'
           id='message'
-          rows={5}
+          minRows={1}
+          spellCheck='true'
           required
         />
         <label
-          className='flex w-36 items-start pt-8 text-accent-5 transition-colors peer-focus/message:text-foreground sm:w-48 sm:py-8'
+          className='flex w-36 items-start border-accent-2 pt-8 text-accent-5 transition-colors peer-focus/message:text-foreground sm:w-48 sm:border-b-2 sm:py-8'
           htmlFor='message'
         >
           How can we help?
         </label>
       </div>
       <button
-        className='mt-16 w-full sm:w-36 cursor-pointer p-4 font-medium shadow-[0_0_0_2px] transition-shadow hover:shadow-[0_0_0_4px]'
+        className='mt-16 w-full text-lg cursor-pointer p-4 font-medium shadow-[0_0_0_2px] transition-shadow hover:shadow-[0_0_0_4px] sm:w-36'
         type='submit'
       >
         Send
