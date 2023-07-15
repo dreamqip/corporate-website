@@ -47,9 +47,6 @@ export default async function Home() {
                 Transcend.
               </span>
             </span>
-            {/* <span>Empower.</span>
-            <span className='pl-3 text-accent-6'>Innovate.</span>
-            <span className='pl-1 text-accent-6'>Transcend.</span> */}
           </h1>
           <h2 className='mt-4 text-center text-lg text-accent-5'>
             <Balancer>
@@ -78,19 +75,20 @@ export default async function Home() {
         <section className='scroll-mt-16 py-10 sm:py-16' id='projects'>
           <div className='mx-auto w-full max-w-3xl'>
             <h3
-              className='text-center text-4xl font-bold'
+              className='text-left text-4xl font-bold sm:text-center'
               aria-label='We create products that make a difference.'
             >
               <span className='text-accent-6'>We</span> create products{' '}
+              <br className='block sm:hidden' />
               <span className='text-accent-6'>that</span> make a difference.
             </h3>
-            <p className='mt-4 text-center text-lg text-accent-6'>
+            <h4 className='mt-4 text-left text-lg tracking-tight text-accent-6 sm:text-center'>
               <Balancer>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Quisquam voluptatum, quibusdam, quia, quae voluptate quod
                 voluptatibus
               </Balancer>
-            </p>
+            </h4>
           </div>
           <div className='mt-16 flex max-w-4xl flex-wrap justify-center gap-8'>
             {projects.map((post) => (
@@ -102,20 +100,21 @@ export default async function Home() {
         </section>
         <section className='scroll-mt-16 py-10 sm:py-16' id='people'>
           <div className='mx-auto w-full max-w-4xl'>
-            <h2
-              className='text-center text-4xl font-bold'
+            <h3
+              className='text-left text-4xl font-bold sm:text-center'
               aria-label='We speak 6 languages and live in 6 countries.'
             >
-              <span className='text-accent-6'>We speak</span> 6 languages{' '}
+              <span className='text-accent-6'>We speak</span>{' '}
+              <br className='block sm:hidden' /> 6 languages{' '}
               <span className='text-accent-6'>and live in</span> 6 countries.
-            </h2>
-            <p className='mt-4 text-center text-lg text-accent-6'>
+            </h3>
+            <h4 className='mt-4 text-left text-lg tracking-tight text-accent-6 sm:text-center'>
               <Balancer>
                 We are a dynamic group of individuals who are passionate about
                 what we do and dedicated to delivering the best results for our
                 clients.
               </Balancer>
-            </p>
+            </h4>
           </div>
           <div className='mt-16 flex max-w-6xl flex-wrap justify-center gap-8'>
             {people.map((person) => (
@@ -147,19 +146,20 @@ export default async function Home() {
           id='collaboration'
         >
           <div className='mx-auto w-full max-w-2xl'>
-            <h2
-              className='text-center text-4xl font-bold'
+            <h3
+              className='text-left text-4xl font-bold sm:text-center'
               aria-label='We speak 6 languages and live in 6 countries.'
             >
-              <span className='text-accent-6'>We are</span> open{' '}
+              <span className='text-accent-6'>We are</span>{' '}
+              <br className='block sm:hidden' /> open{' '}
               <span className='text-accent-6'>to</span> new collaborations.
-            </h2>
-            <p className='mt-4 text-center text-lg text-accent-6'>
+            </h3>
+            <h4 className='mt-4 text-left text-lg tracking-tight text-accent-6 sm:text-center'>
               <Balancer>
                 Our philosophy is to work with partners who demonstrate a
                 commitment to developing and shaping the future of the market.
               </Balancer>
-            </p>
+            </h4>
           </div>
           <ContactForm />
         </section>
