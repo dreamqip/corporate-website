@@ -36,7 +36,7 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className='flex flex-1 items-start justify-start sm:items-stretch sm:justify-between'>
-                <div className='flex flex-shrink-0 items-center'>
+                <a className='flex flex-shrink-0 items-center' href='#'>
                   <Image
                     className='block w-auto'
                     src='/logotype.svg'
@@ -44,7 +44,7 @@ export default function Navbar() {
                     height={24}
                     alt="Manuvantara's logo"
                   />
-                </div>
+                </a>
                 <div className='hidden sm:ml-6 sm:block'>
                   <div className='flex space-x-8'>
                     {navigation.map((item) => (
