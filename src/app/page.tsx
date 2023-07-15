@@ -6,7 +6,8 @@ import { getPeople, getProjects } from '@/lib/api';
 import Image from 'next/image';
 import Balancer from 'react-wrap-balancer';
 
-export const revalidate = 86400;
+// Each 12 hours
+export const revalidate = 43200;
 
 export default async function Home() {
   const people = await getPeople();
