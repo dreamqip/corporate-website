@@ -6,6 +6,8 @@ import { getPeople, getProjects } from '@/lib/api';
 import Image from 'next/image';
 import Balancer from 'react-wrap-balancer';
 
+export const revalidate = 86400;
+
 export default async function Home() {
   const people = await getPeople();
   const projects = await getProjects();
@@ -15,47 +17,47 @@ export default async function Home() {
       <Navbar />
 
       <main className='container flex min-h-screen flex-col items-center justify-between'>
-        <section className='mx-auto grid max-w-3xl place-items-center py-10 sm:py-16'>
+        <section className='mx-auto grid max-w-3xl place-items-start sm:place-items-center py-10 sm:py-16'>
           <h1
-            className='flex flex-col flex-wrap items-center justify-center text-5xl font-bold tracking-tight md:flex-row'
+            className='flex w-full flex-col flex-wrap justify-center text-left text-5xl font-bold tracking-tight text-accent-5 sm:items-center md:flex-row'
             aria-label='Empower. Innovate. Transcend.'
           >
             <span
               data-content='Empower.'
-              className='relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:animate-gradient-background-1 before:px-1 before:text-center before:text-foreground before:content-[attr(data-content)]'
+              className='relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:animate-gradient-background-1 before:text-accent-5 before:content-[attr(data-content)] sm:before:px-1 sm:before:text-center'
             >
-              <span className='animate-gradient-foreground-1 bg-gradient-to-r from-accent-6 to-accent-6 bg-clip-text px-1 text-transparent'>
+              <span className='animate-gradient-foreground-1 bg-gradient-to-r from-foreground to-foreground bg-clip-text text-transparent sm:px-1'>
                 {' '}
                 Empower.
               </span>
             </span>
             <span
               data-content='Innovate.'
-              className='relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:animate-gradient-background-2 before:px-1 before:pl-3 before:text-center before:text-foreground before:content-[attr(data-content)]'
+              className='relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:animate-gradient-background-2 before:text-accent-5 before:content-[attr(data-content)] sm:before:px-1 sm:before:pl-3 sm:before:text-center'
             >
-              <span className='animate-gradient-foreground-2 bg-gradient-to-r from-accent-6 to-accent-6 bg-clip-text px-1 pl-3 text-transparent'>
+              <span className='animate-gradient-foreground-2 bg-gradient-to-r from-foreground to-foreground bg-clip-text text-transparent sm:px-1 sm:pl-3'>
                 {' '}
                 Innovate.
               </span>
             </span>
             <span
               data-content='Transcend.'
-              className='relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:animate-gradient-background-3 before:px-1 before:text-center before:text-foreground before:content-[attr(data-content)]'
+              className='relative block before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:block before:w-full before:animate-gradient-background-3 before:text-accent-5 before:content-[attr(data-content)] sm:before:px-1 sm:before:text-center'
             >
-              <span className='animate-gradient-foreground-3 bg-gradient-to-r from-accent-6 to-accent-6 bg-clip-text px-1 text-transparent'>
+              <span className='animate-gradient-foreground-3 bg-gradient-to-r from-foreground to-foreground bg-clip-text text-transparent sm:px-1'>
                 {' '}
                 Transcend.
               </span>
             </span>
           </h1>
-          <h2 className='mt-4 text-center text-lg text-accent-5'>
+          <h2 className='mt-4 text-left text-lg text-accent-5 sm:text-center'>
             <Balancer>
               We are a strategic web3 agency that empowers its clients to adopt
               blockchain technology for the good of their businesses.
             </Balancer>
           </h2>
           <a
-            className='mt-8 w-36 cursor-pointer p-4 text-center font-medium shadow-[0_0_0_2px] transition-shadow hover:shadow-[0_0_0_4px]'
+            className='mt-8 w-36 cursor-pointer p-4 text-center text-lg font-medium shadow-[0_0_0_2px] transition-shadow hover:shadow-[0_0_0_4px]'
             href='#collaboration'
           >
             Collaborate
@@ -84,9 +86,9 @@ export default async function Home() {
             </h3>
             <h4 className='mt-4 text-left text-lg tracking-tight text-accent-6 sm:text-center'>
               <Balancer>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quisquam voluptatum, quibusdam, quia, quae voluptate quod
-                voluptatibus
+                We do not just build products, but engineer experiences that
+                transform businesses and lives, and contribute to shaping the
+                future of the market.
               </Balancer>
             </h4>
           </div>
