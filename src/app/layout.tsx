@@ -12,7 +12,7 @@ export const metadata = {
   title: 'Manuvantara',
   description:
     'Manuvantara is a strategic web3 agency that empowers its clients to adopt blockchain technology for the good of their businesses.',
-    manifest: '/site.webmanifest',
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
