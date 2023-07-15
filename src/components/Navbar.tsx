@@ -66,7 +66,7 @@ export default function Navbar() {
                   key={item.name}
                   as='a'
                   href={item.href}
-                  className='rounded-md p-2 font-medium transition-colors duration-200 hover:bg-accent-2/40 hover:text-foreground'
+                  className='rounded-md p-2 text-lg transition-colors duration-200 hover:bg-accent-2/40 hover:text-foreground'
                   aria-current={item.current ? 'page' : undefined}
                 >
                   {item.name}
