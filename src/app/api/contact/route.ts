@@ -14,6 +14,8 @@ export async function POST(req: NextRequest) {
   try {
     const data = await createContactToNotion(name, email, phone, message);
 
+    throw new Error('test');
+
     return NextResponse.json(data, {
       headers: {
         'content-type': 'application/json',
@@ -23,7 +25,7 @@ export async function POST(req: NextRequest) {
     });
   } catch {
     return NextResponse.json(
-      'Unfortunatly, something bad happened. Try again later.',
+      'An unexpected error occurred and we are unable to send your collaboration. Please try again. If the problem persists, try again later',
       {
         headers: {
           'content-type': 'application/json',
