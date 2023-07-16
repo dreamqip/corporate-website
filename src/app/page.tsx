@@ -124,7 +124,7 @@ export default async function Home() {
             {people.map((person) => (
               <div
                 key={person.id}
-                className='group w-full sm:w-[calc(50%-2rem)] md:w-[calc(33%-2rem)] lg:w-[calc(25%-2rem)]'
+                className='group w-full text-center sm:w-[calc(50%-2rem)] md:w-[calc(33%-2rem)] lg:w-[calc(25%-2rem)]'
               >
                 <div className='relative overflow-hidden'>
                   <Image
