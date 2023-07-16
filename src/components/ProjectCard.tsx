@@ -18,7 +18,7 @@ export default function ProjectCard({
 
   return (
     <>
-      <div className='group relative'>
+      <div className='group relative overflow-hidden'>
         <Image
           className='aspect-[3/2] w-full overflow-hidden border-none object-cover outline-none grayscale transition-all duration-300 group-hover:grayscale-0'
           src={image}
