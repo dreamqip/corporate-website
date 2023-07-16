@@ -7,7 +7,8 @@ import Image from 'next/image';
 import Balancer from 'react-wrap-balancer';
 
 // Each hour
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
+export const runtime = 'edge';
 
 export default async function Home() {
   const people = await getPeople();
