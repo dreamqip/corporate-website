@@ -14,8 +14,6 @@ export async function POST(req: NextRequest) {
   try {
     const data = await createContactToNotion(name, email, phone, message);
 
-    throw new Error('test');
-
     return NextResponse.json(data, {
       headers: {
         'content-type': 'application/json',
