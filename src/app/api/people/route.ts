@@ -29,8 +29,8 @@ export async function GET() {
           : '',
       image:
         page.properties.Image.type === 'files'
-          ? page.properties.Image.files[0].type === 'file'
-            ? page.properties.Image.files[0].file.url
+          ? page.properties.Image.files[0].type === 'external'
+            ? page.properties.Image.files[0].external.url
             : ''
           : '',
       location:

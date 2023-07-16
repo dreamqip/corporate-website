@@ -7,7 +7,7 @@ const nextConfig = {
         protocol: 'https',
       },
       {
-        hostname: 's3.us-west-2.amazonaws.com',
+        hostname: 'drive.google.com',
         protocol: 'https',
       }
     ],
