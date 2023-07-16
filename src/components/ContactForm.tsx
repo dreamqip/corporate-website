@@ -2,7 +2,15 @@
 
 import { type FormEvent, useRef } from 'react';
 import { toast } from 'sonner';
-import TextareaAutosize from 'react-textarea-autosize';
+import dynamic from 'next/dynamic';
+
+// Throws an error in production if not wrapped in dynamic
+const TextareaAutosize = dynamic(() => import('react-textarea-autosize'), {
+  ssr: false,
+  loading: () => (
+    <div className='flex items-center justify-center border-b-2 border-accent-2 bg-background py-4 pt-8 text-lg sm:flex-1 sm:py-8' />
+  ),
+});
 
 export default function ContactForm() {
   const ref = useRef<HTMLFormElement>(null);
