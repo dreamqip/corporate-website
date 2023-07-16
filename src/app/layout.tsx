@@ -1,6 +1,7 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Providers from '@/app/providers';
+import Script from 'next/script';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -25,6 +26,12 @@ export default function RootLayout({
     <html lang='en' className='motion-safe:scroll-smooth'>
       <body className={inter.variable}>
         <Providers>{children}</Providers>
+        <Script
+          defer
+          src='https://static.cloudflareinsights.com/beacon.min.js'
+          data-cf-beacon='{"token": "0a8d1a9d266241fb92bf399c243dd13c"}'
+          strategy='afterInteractive'
+        />
       </body>
     </html>
   );
