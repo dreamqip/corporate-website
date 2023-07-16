@@ -3,7 +3,7 @@ import { isFullPage } from '@notionhq/client';
 import { NextResponse } from 'next/server';
 import type { Project } from '@/types';
 
-export const revalidate = 3600;
+export const runtime = 'edge';
 
 export async function GET() {
   const rawData = await getProjectsFullPageOrPartialPage();

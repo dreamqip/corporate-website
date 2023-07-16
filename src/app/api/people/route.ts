@@ -3,8 +3,7 @@ import { isFullPage } from '@notionhq/client';
 import { NextResponse } from 'next/server';
 import type { Person } from '@/types';
 
-// Fetch data from Notion API every hour
-export const revalidate = 3600;
+export const runtime = 'edge';
 
 export async function GET() {
   const rawData = await getPeopleFullPageOrPartialPage();
