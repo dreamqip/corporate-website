@@ -1,7 +1,7 @@
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
-import Card from '@/components/ProjectCard';
+import ProjectCard from '@/components/ProjectCard';
 import { getPeople, getProjects } from '@/lib/api';
 import Image from 'next/image';
 import Balancer from 'react-wrap-balancer';
@@ -18,7 +18,7 @@ export default async function Home() {
       <Navbar />
 
       <main className='container flex min-h-screen flex-col items-center justify-between'>
-        <section className='mx-auto grid max-w-3xl place-items-start sm:place-items-center py-10 sm:py-16'>
+        <section className='mx-auto grid max-w-3xl place-items-start py-10 sm:place-items-center sm:py-16'>
           <h1
             className='flex w-full flex-col flex-wrap justify-center text-left text-5xl font-bold tracking-tight text-accent-5 sm:items-center md:flex-row'
             aria-label='Empower. Innovate. Transcend.'
@@ -96,7 +96,7 @@ export default async function Home() {
           <div className='mt-16 flex max-w-4xl flex-wrap justify-center gap-8'>
             {projects.map((post) => (
               <div key={post.id} className='grid w-full md:w-[calc(50%-2rem)]'>
-                <Card {...post} />
+                <ProjectCard {...post} />
               </div>
             ))}
           </div>
