@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Balancer from 'react-wrap-balancer';
 
 // Revalidate every 24 hours
-export const revalidate = 86400;
+export const revalidate = 60;
 
 export default async function Home() {
   const people = await getPeople();
