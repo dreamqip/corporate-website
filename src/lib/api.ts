@@ -1,4 +1,9 @@
 import type { Person, Project } from '@/types';
+import { client } from '../../sanity/lib/client';
+
+export async function getPeopleV2() {
+  return await client.fetch('*[_type == "person"]');
+}
 
 export const getPeople = async () => {
   const res = await fetch(`${process.env.HOST}/api/people`);

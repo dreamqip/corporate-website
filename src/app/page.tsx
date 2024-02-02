@@ -2,7 +2,7 @@ import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import ProjectCard from '@/components/ProjectCard';
-import { getPeople, getProjects } from '@/lib/api';
+import { getPeople, getPeopleV2, getProjects } from '@/lib/api';
 import Image from 'next/image';
 import Balancer from 'react-wrap-balancer';
 
@@ -10,8 +10,11 @@ import Balancer from 'react-wrap-balancer';
 export const revalidate = 60;
 
 export default async function Home() {
+  const peopleV2 = await getPeopleV2();
   const people = await getPeople();
   const projects = await getProjects();
+
+  console.log(peopleV2);
 
   return (
     <>
