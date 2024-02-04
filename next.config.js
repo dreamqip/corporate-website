@@ -21,6 +21,10 @@ const nextConfig = {
       {
         hostname: 'firebasestorage.googleapis.com',
         protocol: 'https',
+      },
+      {
+        hostname: 'cdn.sanity.io',
+        protocol: 'https',
       }
     ],
   },

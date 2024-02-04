@@ -2,19 +2,16 @@ import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import ProjectCard from '@/components/ProjectCard';
-import { getPeople, getPeopleV2, getProjects } from '@/lib/api';
+import { getPeople, getProjects } from '@/lib/api';
 import Image from 'next/image';
 import Balancer from 'react-wrap-balancer';
 
-// Revalidate every 24 hours
+// Revalidate every 60 seconds
 export const revalidate = 60;
 
 export default async function Home() {
-  const peopleV2 = await getPeopleV2();
   const people = await getPeople();
   const projects = await getProjects();
-
-  console.log(peopleV2);
 
   return (
     <>
@@ -98,7 +95,7 @@ export default async function Home() {
           </div>
           <div className='mt-16 flex max-w-4xl flex-wrap justify-center gap-8'>
             {projects.map((post) => (
-              <div key={post.id} className='grid w-full md:w-[calc(50%-2rem)]'>
+              <div key={post._id} className='grid w-full md:w-[calc(50%-2rem)]'>
                 <ProjectCard {...post} />
               </div>
             ))}
@@ -125,7 +122,7 @@ export default async function Home() {
           <div className='mt-16 flex max-w-6xl flex-wrap justify-center gap-8'>
             {people.map((person) => (
               <div
-                key={person.id}
+                key={person._id}
                 className='group w-full text-center sm:w-[calc(50%-2rem)] md:w-[calc(33%-2rem)] lg:w-[calc(25%-2rem)]'
               >
                 <div className='relative overflow-hidden'>
@@ -141,7 +138,7 @@ export default async function Home() {
                 <h3 className='mt-4 text-lg font-medium sm:text-xl'>
                   {person.name}
                 </h3>
-                <p className='mt-2 text-accent-6'>{person.title}</p>
+                <p className='mt-2 text-accent-6'>{person.role}</p>
                 <p className='mt-2 text-sm text-accent-5'>{person.location}</p>
               </div>
             ))}

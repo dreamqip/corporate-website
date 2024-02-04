@@ -3,6 +3,7 @@
 import { type FormEvent, useRef } from 'react';
 import { toast } from 'sonner';
 import dynamic from 'next/dynamic';
+import { createCollaboration } from '@/lib/api';
 
 // Throws an error in production if not wrapped in dynamic
 const TextareaAutosize = dynamic(() => import('react-textarea-autosize'), {
@@ -20,7 +21,6 @@ export default function ContactForm() {
 
     const formData = new FormData(e.currentTarget);
 
-    // Creating a new promise to later use with toast.promise to show loading
     const promise = new Promise((resolve, reject) => {
       fetch('/api/contact', {
         method: 'POST',
@@ -37,10 +37,8 @@ export default function ContactForm() {
 
     toast.promise(promise, {
       loading: 'Sending...',
-      success: () => {
-        // ref.current?.reset();
-        return 'Message sent!';
-      },
+      success:
+        'Thank you for your submission! We will get back to you shortly.',
       error: (err) => err,
     });
   };

@@ -1,13 +1,15 @@
+export type People = Person[];
 export type Person = {
-  id: string;
+  _id: string;
   name: string;
-  title: string;
+  role: string;
   image: string;
   location: string;
 };
 
+export type Projects = Project[];
 export type Project = {
-  id: string;
+  _id: string;
   name: string;
   description: string;
   image: string;

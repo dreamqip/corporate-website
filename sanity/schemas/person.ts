@@ -6,17 +6,33 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'fullName',
-      title: 'Full name',
+      name: 'name',
+      title: 'Name',
       type: 'string',
     },
     {
-      name: 'portrait',
-      title: 'Portrait',
+      name: 'role',
+      title: 'Role',
+      type: 'string',
+    },
+    {
+      name: 'priority',
+      title: 'Priority',
+      type: 'number',
+      validation: (Rule) => Rule.min(0).max(100),
+    },
+    {
+      name: 'image',
+      title: 'Image',
       type: 'image',
       options: {
         hotspot: true,
       },
+    },
+    {
+      name: 'location',
+      title: 'Location',
+      type: 'string',
     },
   ],
 } satisfies SchemaTypeDefinition;
