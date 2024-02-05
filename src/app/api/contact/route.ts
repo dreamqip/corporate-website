@@ -1,18 +1,24 @@
-import { createContactToNotion } from '@/lib/notion';
+import { createCollaboration } from '@/lib/api';
 import { NextResponse, type NextRequest } from 'next/server';
 
 export const runtime = 'edge';
 
+type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+};
+
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
 
-  const name = formData.get('name') as string;
-  const email = formData.get('email') as string;
-  const phone = formData.get('phone') as string;
-  const message = formData.get('message') as string;
+  const { name, email, phone, message } = Object.fromEntries(
+    formData,
+  ) as FormData;
 
   try {
-    const data = await createContactToNotion(name, email, phone, message);
+    const data = await createCollaboration(name, email, phone, message);
 
     return NextResponse.json(data, {
       headers: {
@@ -21,14 +27,14 @@ export async function POST(req: NextRequest) {
       status: 200,
       statusText: 'Successfully Created',
     });
-  } catch {
+  } catch (e) {
     return NextResponse.json(
-      'An unexpected error occurred and we are unable to send your collaboration. Please try again. If the problem persists, try again later',
+      `An unexpected error occurred and we are unable to send your collaboration. Please try again. If the problem persists, try again later. Error: ${e}`,
       {
         headers: {
           'content-type': 'application/json',
         },
-        status: 400,
+        status: 500,
       },
     );
   }
